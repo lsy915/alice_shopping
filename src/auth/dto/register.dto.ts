@@ -27,4 +27,12 @@ export class RegisterDto {
     minLength: 8,
   })
   password: string;
+
+  @ApiProperty({
+    description: '성별',
+    example: 'male',
+    required: true,
+  })
+  @IsString()
+  gender: string;
 }

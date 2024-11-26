@@ -34,12 +34,13 @@ export class AuthProvider {
   }
 
   async register(registerDto: RegisterDto) {
-    const { name, email, password } = registerDto;
+    const { name, email, password, gender } = registerDto;
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = new User();
     user.name = name;
     user.email = email;
     user.password = hashedPassword;
+    user.gender = gender;
     await this.userRepository.save(user);
     return { message: '회원가입 성공 '}
   }

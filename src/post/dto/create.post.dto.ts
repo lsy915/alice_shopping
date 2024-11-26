@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { ArrayNotEmpty, ArrayUnique, IsArray, IsNumber, IsString } from "class-validator";
+import { ArrayMaxSize, ArrayNotEmpty, ArrayUnique, IsArray, IsNumber, IsOptional, IsString } from "class-validator";
 
 export class CreatePostDto {
   @ApiProperty({
@@ -33,6 +33,11 @@ export class CreatePostDto {
   })
   @IsString()
   imgurl: string;
+
+  @ApiProperty({ description: '메뉴 ID', example: 1, required: false })
+  @IsOptional()
+  @IsNumber()
+  menuId?: number;
 
   @ApiProperty({
     description: '사이즈',

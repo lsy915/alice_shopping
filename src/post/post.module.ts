@@ -5,6 +5,7 @@ import { PostController } from "./post.controller";
 import { PostProvider } from "./post.provider";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { Size } from "@root/entity/Size.entity";
+import { Menu } from "@root/entity/Menu.entity";
 
 @Module({
   imports: [
@@ -16,7 +17,7 @@ import { Size } from "@root/entity/Size.entity";
         signOptions: { expiresIn: '1h' },
       }),
     }),
-    TypeOrmModule.forFeature([Size]),
+    TypeOrmModule.forFeature([Size, Menu]),
   ],
   controllers: [PostController],
   providers: [PostProvider]
